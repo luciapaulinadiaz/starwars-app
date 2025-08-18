@@ -1,9 +1,7 @@
 package com.starwars.app.controller;
 
-import com.starwars.app.dto.swapi.FilmDTO;
 import com.starwars.app.dto.swapi.FilmDetailResponse;
 import com.starwars.app.dto.swapi.FilmsListResponse;
-import com.starwars.app.dto.swapi.SwapiResponse;
 import com.starwars.app.service.external.FilmService;
 import lombok.*;
 import org.slf4j.Logger;

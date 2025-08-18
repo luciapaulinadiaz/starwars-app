@@ -1,13 +1,10 @@
 package com.starwars.app.service.external;
 
-import com.starwars.app.dto.swapi.FilmDTO;
 import com.starwars.app.dto.swapi.FilmDetailResponse;
 import com.starwars.app.dto.swapi.FilmsListResponse;
-import com.starwars.app.dto.swapi.SwapiResponse;
 import lombok.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
