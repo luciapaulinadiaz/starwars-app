@@ -29,7 +29,12 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .authorizeRequests()
                 .antMatchers("/h2-console/**").permitAll()
                 .antMatchers("/api/auth/**").permitAll()
-                .antMatchers("/swagger-ui/**", "/api-docs/**").permitAll()
+                .antMatchers("/swagger-ui.html").permitAll()
+                .antMatchers("/swagger-ui/**").permitAll()
+                .antMatchers("/v2/api-docs", "/configuration/ui", "/swagger-resources/**",
+                        "/configuration/security", "/webjars/**").permitAll()
+                .antMatchers("/v3/api-docs/**").permitAll()
+                .antMatchers("/api-docs/**").permitAll()
                 .antMatchers("/error").permitAll()
                 .anyRequest().authenticated()
                 .and()

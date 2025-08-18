@@ -29,11 +29,11 @@ public class PeopleController {
     @GetMapping
     public ResponseEntity<SwapiResponse<PersonDTO>> getPeople(
             @RequestParam(defaultValue = "1") @Min(1) Integer page,
-            @RequestParam(defaultValue = "10") @Min(1) @Max(100) Integer size) {
+            @RequestParam(defaultValue = "10") @Min(1) @Max(100) Integer limit) {
 
-        logger.info("GET /api/people - page: {}, size: {}", page, size);
+        logger.info("GET /api/people - page: {}, size: {}", page, limit);
 
-        SwapiResponse<PersonDTO> response = peopleService.getPeople(page, size);
+        SwapiResponse<PersonDTO> response = peopleService.getPeople(page, limit);
 
         if (response == null || response.getResults() == null || response.getResults().isEmpty()) {
             logger.warn("No people found for page: {}", page);
