@@ -22,9 +22,13 @@ public class PeopleController {
     private static final Logger logger = LoggerFactory.getLogger(PeopleController.class);
 
 
+    /**
+     * Obtiene lista paginada de personas
+     * GET /api/people?page=1&size=10
+     */
     @GetMapping
     public ResponseEntity<SwapiResponse<PersonDTO>> getPeople(
-            @RequestParam(defaultValue = "0") @Min(1) Integer page,
+            @RequestParam(defaultValue = "1") @Min(1) Integer page,
             @RequestParam(defaultValue = "10") @Min(1) @Max(100) Integer size) {
 
         logger.info("GET /api/people - page: {}, size: {}", page, size);
@@ -41,6 +45,10 @@ public class PeopleController {
     }
 
 
+    /**
+     * Obtiene detalles de un persona por ID
+     * GET /api/people/{id}
+     */
     @GetMapping("/{id}")
     public ResponseEntity<PersonDetailResponse.PersonProperties> getPersonById(@PathVariable String id) {
         return peopleService.getPersonById(id)
@@ -56,6 +64,10 @@ public class PeopleController {
     }
 
 
+    /**
+     * Health check para el endpoint de personas
+     * GET /api/people/health
+     */
     @GetMapping("/health")
     public ResponseEntity<String> health() {
         logger.debug("Health check for people endpoint");
